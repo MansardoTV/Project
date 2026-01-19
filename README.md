@@ -35,7 +35,7 @@
 ```bash
 # Клонируйте репозиторий 
 git clone https://github.com/MansardoTV/Project#
-cd C:\Users\(вашКомпьютер)\Desktop\p>
+cd C:\Users\(вашКомпьютер)\Desktop\Project>
 ```
 ### Запуск всей системы
 Перейдите в папку docker и соберите образ:
