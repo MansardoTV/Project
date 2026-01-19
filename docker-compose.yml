@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  restaurant-parser:
+    build: .
+    container_name: restaurant-parser
+    volumes:
+      - ./output:/app/output
+    command: >
+      sh -c "
+        echo '🚀 Запускаем парсинг ресторанов...'
+        python parser_docker.py
+        
+        echo '✅ Парсинг завершен!'
+        echo '📂 JSON файлы сохранены в /app/output/'
+        
+        echo '🎯 Система готова!'
+        echo '🌐 Откройте: http://localhost:5000'
+        
+        # Оставляем контейнер активным
+        tail -f /dev/null
+      "
+
+  web-interface:
+    build: .
+    container_name: hive-web
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./output:/app/output
+    depends_on:
+      - restaurant-parser
+    command: >
+      sh -c "
+        echo '⏳ Ждем завершения парсера...'
+        sleep 30
+        
+        echo '📦 Устанавливаем зависимости...'
+        pip install flask matplotlib --quiet
+        
+        echo '🌐 Запускаем веб-сервер...'
+        echo '   Открой: http://localhost:5000'
+        python web_hive.py
+      "
