@@ -28,13 +28,12 @@
 
 Все тяжёлые зависимости (Hive) разворачиваются внутри Docker-контейнеров.
 
-### Установка Python-зависимостей
-
-Зависимости требуются для Streamlit UI и управляющего скрипта:
+### Установка
 
 ```bash
 # Клонируйте репозиторий 
 git clone https://github.com/MansardoTV/Project#
+# Перейдите в папку
 cd C:\Users\(вашКомпьютер)\Desktop\Project>
 ```
 ### Запуск всей системы
@@ -42,7 +41,7 @@ cd C:\Users\(вашКомпьютер)\Desktop\Project>
 
 ```
 cd docker
-docker compose build
+docker compose up --build
 cd ..
 ```
 
