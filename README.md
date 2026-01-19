@@ -37,12 +37,11 @@ git clone https://github.com/MansardoTV/Project#
 cd C:\Users\(вашКомпьютер)\Desktop\Project>
 ```
 ### Запуск всей системы
-Перейдите в папку docker и соберите образ:
+Перейдите в папку в docker и соберите образ:
 
 ```
-cd docker
+cd C:\Users\(вашКомпьютер)\Desktop\Project>
 docker compose up --build
-cd ..
 ```
 
 Скрипт выполняет:
